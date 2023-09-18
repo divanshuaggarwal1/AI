@@ -1,0 +1,60 @@
+#this problem is known as Cannibal Missionary problem
+#Initially 3 missionary and 3 cannibals at River-bank 1 and they have to go to River-bank 2
+M1 = 3
+C1 = 3
+M2 = 0
+C2 = 0
+print("One Missionary is sailing boat from Bank 1 to Bank 2")
+print("Two Missionary are sailing boat from Bank 1 to Bank 2")
+print("One Missionary and one cannibal are sailing boat from Bank 1 to Bank 2")
+print("One cannibal is sailing boat from Bank 1 to Bank 2")
+print("Two cannibal sailing boat from Bank 1 to Bank 2")
+print("One Missionary is sailing boat from Bank 2 to Bank 1")
+print("two Missionary are sailing boat from Bank 2 to Bank 1")
+print("One Missionary and one cannibal are sailing boat from Bank 2 to Bank 1")
+print("One cannibal is sailing boat from Bank 2 to Bank 1")
+print("Two cannibal sailing boat from Bank 2 to Bank 1")
+
+while ((M2!=3) or (C2!=3)) :
+    
+   r = int(input("Enter your choice"))
+    
+        
+   if r==1:
+        M1 = M1-1
+        M2 = M2+1
+   elif r==2:
+        M1 -= 2
+        M2 +=2
+   elif r == 3:
+        M1 -= 1
+        M2 += 1
+        C2 += 1
+        C1 -= 1
+   elif r == 4 :
+        C1 -= 1
+        C2 += 1
+   elif r == 5 :
+        C1 -= 2
+        C2 += 2
+   elif r == 6 :
+        M2 -= 1
+        M1 += 1
+   elif r == 7 :
+        M1 += 2
+        M2 -= 2
+   elif r == 8 :
+        M1 += 1
+        C1 += 1
+        M2 -= 1
+        C2 -= 1
+   elif r == 9 :
+        C2 -= 1
+        C1 += 1
+   elif r == 10 :
+        C2 -= 2
+        C1 += 2
+   elif ((M1 < 0 and M1<C1) or (C2>M2 and C1 > 0)) :
+         print("Cannibal ate amissionary")
+         break
+print("DONE \nThey have successfully passed the rivers",M2,C2)
