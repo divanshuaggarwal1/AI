@@ -30,3 +30,8 @@ print(kb4.query(pl.Expr('dish_to_like(ashish,pasta)')))
 
 
 query:
+kb4.query(pl.Expr("food_flavor(X, Y)"))
+kb4.query(pl.Expr("dish_to_like(X, Y)"))
+kb4.query(pl.Expr("food_flavor(samosa, sweet)"))
+kb4.query(pl.Expr("food_flavor(lemonade, sweet)"))
+kb4.query(pl.Expr("dish_to_like(ashish, lemonade)"))
