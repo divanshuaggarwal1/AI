@@ -1,0 +1,32 @@
+//problem:Check the following first order predicate logic (FOPL) for the following expression and mention the outpu:
+
+//kb1 = pl.KnowledgeBase("friendship")
+
+//kb1(["friend(krishna,sudama)", "friend(arjun, krishna)"])
+
+//kb1.query(pl.Expr("friend(sudama, arjun)"))
+//kb1.query(pl.Expr("friend(sudama, krishna)"))
+//kb1.query(pl.Expr("friend(krishna,sudama)"))
+!pip install pytholog
+import pytholog as pl
+kb4 = pl.KnowledgeBase("flavor")
+kb4(["likes(divyanshu, samosa)",
+        "likes(riya, pasta)",
+        "likes(tushar, cookie)",
+        "likes(ashish, samosa)",
+        "likes(arpita, lemonade)",
+        "food_type(samosa, snack)",
+        "food_type(lemonade, juice)",
+        "food_type(cookie, biscuit)",
+        "food_type(pasta, noodles)",
+        "food_type(lemonade, drink)",
+        "flavor(sweet, juice)",
+        "flavor(savory, snack)",
+        "flavor(savory, noodles)",
+        "flavor(sweet, cookie)",
+        "food_flavor(X, Y) :- food_type(X, Z), flavor(Y, Z)",
+        "dish_to_like(X, Y) :- likes(X, L), food_type(L, T), flavor(F, T), food_flavor(Y, F), neq(L, Y)"])
+print(kb4.query(pl.Expr('dish_to_like(ashish,pasta)')))
+
+
+query:
