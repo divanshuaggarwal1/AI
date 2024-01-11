@@ -1,0 +1,11 @@
+import matplotlib.pyplot as plt
+from sklearn import datasets
+from sklearn.cluster import KMeans
+iris =datasets.load_iris()
+x= iris.data
+y= iris.target
+print(y)
+kmc =KMeans(n_clusters=3, init='random', n_init=20, max_iter=10,tol=1e-04, random_state=0)
+y_kmc =kmc.fit_predict(x)
+print(y_kmc)
+plt.scatter(x[y_kmc == 0,1], x[y_kmc ==0,3],s=50,c='lightgreen',marker='s',)
