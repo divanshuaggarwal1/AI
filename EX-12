@@ -1,0 +1,19 @@
+weather=['sunny','sunny','overcast','rainy','rainy','rainy','overcast','sunny','rainy','sunny','overcast','overcast','rainy']
+temp=['hot','hot','hot','mild','cool','cool','cool','mild','cool','mild','mild','hot','hot']
+play = ['no','no','yes','yes','no','yes','no','yes','yes','no','yes','no','no']
+from sklearn import preprocessing
+le = preprocessing.LabelEncoder()
+weather_encoded = le.fit_transform(weather)
+print(weather_encoded)
+type(weather_encoded)
+temp_encoded = le.fit_transform(temp)
+play_encoded = le.fit_transform(play)
+print(temp_encoded)
+print(play_encoded)
+features = list(zip(weather_encoded,temp_encoded))
+print(features)
+from sklearn.naive_bayes import GaussianNB
+model = GaussianNB()
+model.fit(features,play_encoded)
+predicted = model.predict([[0,2]])
+print("Predicted Value = ",predicted)
